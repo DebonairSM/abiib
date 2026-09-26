@@ -1,0 +1,702 @@
+/* ============================================================
+   ABIIB – Associação de Brasileiros nos Estados Unidos
+   pela Transparência e Apoio às Comunidades no Brasil
+   Institutional Stylesheet
+   ============================================================ */
+
+/* ----- Reset & Base ---------------------------------------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --navy:      #1b2a4a;
+  --charcoal:  #3a3a3a;
+  --offwhite:  #f4f2ed;
+  --white:     #ffffff;
+  --gold:      #a07830;
+  --gold-pale: #c8a86a;
+  --divider:   #d4cfc6;
+  --text:      #2c2c2c;
+  --text-muted:#6a6a6a;
+  --border:    #c0bbb2;
+
+  --font-serif: 'EB Garamond', 'Garamond', Georgia, 'Times New Roman', serif;
+  --font-sans:  'Source Sans 3', 'Source Sans Pro', 'Helvetica Neue', Arial, sans-serif;
+
+  --max-width: 1080px;
+  --section-pad: 5rem 2rem;
+  --transition: 0.2s ease;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 17px;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--offwhite);
+  color: var(--text);
+  line-height: 1.75;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: var(--navy);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition: color var(--transition);
+}
+
+a:hover {
+  color: var(--gold);
+}
+
+/* ----- Typography ------------------------------------------ */
+h1, h2, h3, h4 {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--navy);
+}
+
+h1 { font-size: 2.4rem; }
+h2 { font-size: 1.9rem; }
+h3 { font-size: 1.4rem; }
+h4 { font-size: 1.15rem; }
+
+p {
+  margin-bottom: 1.1rem;
+  max-width: 70ch;
+}
+
+p:last-child { margin-bottom: 0; }
+
+ul, ol {
+  padding-left: 1.5rem;
+  margin-bottom: 1.1rem;
+}
+
+li {
+  margin-bottom: 0.45rem;
+}
+
+/* ----- Utility --------------------------------------------- */
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.gold-rule {
+  display: block;
+  width: 3.5rem;
+  height: 2px;
+  background: var(--gold);
+  margin: 1.25rem 0 1.75rem;
+}
+
+.section-label {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.5rem;
+}
+
+/* ----- Language Toggle ------------------------------------- */
+#lang-toggle-bar {
+  background: var(--navy);
+  text-align: right;
+  padding: 0.45rem 2rem;
+}
+
+#lang-toggle-bar button {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.35);
+  color: rgba(255,255,255,0.75);
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  padding: 0.25rem 0.75rem;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: background var(--transition), color var(--transition);
+}
+
+#lang-toggle-bar button:hover,
+#lang-toggle-bar button.active {
+  background: rgba(255,255,255,0.15);
+  color: var(--white);
+  border-color: rgba(255,255,255,0.6);
+}
+
+#lang-toggle-bar button + button {
+  margin-left: 0.5rem;
+}
+
+/* ----- Navigation ------------------------------------------ */
+#main-nav {
+  background: var(--navy);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 2px solid var(--gold);
+}
+
+#main-nav .nav-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.nav-brand {
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--white);
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  padding: 1rem 0;
+  flex-shrink: 0;
+}
+
+.nav-brand span {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold-pale);
+  line-height: 1.3;
+  margin-top: 0.15rem;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex-wrap: wrap;
+}
+
+.nav-links a {
+  display: block;
+  padding: 1rem 0.85rem;
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.78);
+  text-decoration: none;
+  transition: color var(--transition), background var(--transition);
+  border-bottom: 2px solid transparent;
+}
+
+.nav-links a:hover {
+  color: var(--white);
+  background: rgba(255,255,255,0.06);
+  border-bottom-color: var(--gold);
+}
+
+/* Mobile nav toggle */
+.nav-hamburger {
+  display: none;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.35);
+  color: var(--white);
+  font-size: 1.3rem;
+  padding: 0.35rem 0.7rem;
+  cursor: pointer;
+  border-radius: 2px;
+}
+
+/* ----- Hero / Home Section --------------------------------- */
+#home {
+  background: var(--navy);
+  color: var(--white);
+  padding: 6rem 2rem 5rem;
+}
+
+#home .container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+#home .hero-eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold-pale);
+  margin-bottom: 1rem;
+}
+
+#home h1 {
+  color: var(--white);
+  font-size: 2.6rem;
+  max-width: 18ch;
+  line-height: 1.2;
+}
+
+#home .gold-rule {
+  margin: 1.5rem 0 2rem;
+}
+
+#home p {
+  color: rgba(255,255,255,0.84);
+  font-size: 1.05rem;
+  max-width: 60ch;
+}
+
+#home .mission-block {
+  border-left: 2px solid var(--gold);
+  padding-left: 1.5rem;
+  margin-top: 2rem;
+}
+
+#home .mission-block p {
+  font-family: var(--font-serif);
+  font-size: 1.18rem;
+  font-style: italic;
+  color: rgba(255,255,255,0.9);
+  line-height: 1.65;
+}
+
+/* ----- General Content Sections ---------------------------- */
+.content-section {
+  padding: var(--section-pad);
+}
+
+.content-section:nth-child(even) {
+  background: var(--white);
+}
+
+.content-section:nth-child(odd) {
+  background: var(--offwhite);
+}
+
+/* Override for specific sections */
+#governance { background: var(--white); }
+#contact    { background: var(--navy); color: var(--white); }
+
+.section-header {
+  margin-bottom: 2.5rem;
+}
+
+.section-header h2 {
+  margin-top: 0.25rem;
+}
+
+/* ----- Two-column layout ----------------------------------- */
+.col-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+}
+
+.col-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 2.5rem;
+}
+
+/* ----- Info Cards ------------------------------------------ */
+.info-card {
+  background: var(--offwhite);
+  border-top: 3px solid var(--gold);
+  padding: 1.75rem 1.5rem;
+}
+
+.content-section:nth-child(even) .info-card {
+  background: var(--offwhite);
+}
+
+.info-card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.75rem;
+}
+
+.info-card p {
+  font-size: 0.92rem;
+  color: var(--charcoal);
+  margin-bottom: 0;
+}
+
+/* ----- Requirements / Standards Lists --------------------- */
+.req-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.req-list li {
+  padding: 0.85rem 0 0.85rem 1.5rem;
+  border-bottom: 1px solid var(--divider);
+  position: relative;
+  font-size: 0.95rem;
+}
+
+.req-list li::before {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 1.25rem;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: var(--gold);
+}
+
+.req-list li:last-child {
+  border-bottom: none;
+}
+
+/* ----- Process Steps --------------------------------------- */
+.process-steps {
+  counter-reset: step;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.process-steps li {
+  counter-increment: step;
+  display: flex;
+  gap: 1.25rem;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid var(--divider);
+}
+
+.process-steps li:last-child {
+  border-bottom: none;
+}
+
+.process-steps li::before {
+  content: counter(step);
+  font-family: var(--font-serif);
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--gold);
+  line-height: 1;
+  min-width: 2rem;
+  text-align: right;
+  padding-top: 0.1rem;
+  flex-shrink: 0;
+}
+
+.process-steps .step-content h4 {
+  font-size: 1rem;
+  margin-bottom: 0.35rem;
+}
+
+.process-steps .step-content p {
+  font-size: 0.92rem;
+  color: var(--charcoal);
+  margin-bottom: 0;
+}
+
+/* ----- Reports Table --------------------------------------- */
+.reports-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1.5rem;
+  font-size: 0.93rem;
+}
+
+.reports-table th {
+  background: var(--navy);
+  color: var(--white);
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.85rem 1rem;
+  text-align: left;
+}
+
+.reports-table td {
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid var(--divider);
+  color: var(--charcoal);
+}
+
+.reports-table tr:last-child td {
+  border-bottom: none;
+}
+
+.reports-table tr:nth-child(even) td {
+  background: rgba(0,0,0,0.02);
+}
+
+.badge {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.6rem;
+  border-radius: 2px;
+  background: #e8f0de;
+  color: #2d5a1b;
+}
+
+.badge-pending {
+  background: #f0ece0;
+  color: #7a6020;
+}
+
+/* ----- Board / Governance ---------------------------------- */
+.board-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.board-card {
+  border: 1px solid var(--border);
+  padding: 1.5rem;
+  background: var(--offwhite);
+}
+
+.board-card .role {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.4rem;
+}
+
+.board-card h4 {
+  font-size: 1rem;
+  margin-bottom: 0.3rem;
+}
+
+.board-card p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 0;
+}
+
+/* ----- Contact Section ------------------------------------- */
+#contact h2 { color: var(--white); }
+#contact p  { color: rgba(255,255,255,0.8); }
+#contact .section-label { color: var(--gold-pale); }
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  margin-top: 2rem;
+}
+
+.contact-block h3 {
+  font-size: 1.05rem;
+  color: var(--white);
+  margin-bottom: 0.5rem;
+}
+
+.contact-block p {
+  font-size: 0.93rem;
+  color: rgba(255,255,255,0.75);
+  max-width: none;
+}
+
+.contact-block a {
+  color: var(--gold-pale);
+}
+
+.contact-block a:hover {
+  color: var(--white);
+}
+
+/* Membership form area */
+.membership-note {
+  margin-top: 3rem;
+  padding: 2rem;
+  border: 1px solid rgba(255,255,255,0.15);
+  background: rgba(255,255,255,0.05);
+}
+
+.membership-note h3 {
+  color: var(--white);
+  font-size: 1.1rem;
+  margin-bottom: 0.75rem;
+}
+
+.membership-note p {
+  font-size: 0.93rem;
+  color: rgba(255,255,255,0.75);
+  max-width: 65ch;
+}
+
+/* ----- Footer ---------------------------------------------- */
+#site-footer {
+  background: #111d35;
+  color: rgba(255,255,255,0.55);
+  padding: 2.5rem 2rem;
+  font-size: 0.82rem;
+}
+
+#site-footer .footer-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+#site-footer .footer-brand {
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  color: rgba(255,255,255,0.7);
+}
+
+#site-footer .footer-links {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+#site-footer .footer-links a {
+  color: rgba(255,255,255,0.5);
+  text-decoration: none;
+  font-size: 0.8rem;
+}
+
+#site-footer .footer-links a:hover {
+  color: var(--gold-pale);
+}
+
+/* ----- Principle blocks ------------------------------------ */
+.principle-block {
+  padding: 1.75rem 1.5rem;
+  border-left: 3px solid var(--gold);
+  background: rgba(160, 120, 48, 0.04);
+  margin-bottom: 1.5rem;
+}
+
+.principle-block h4 {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.principle-block p {
+  font-size: 0.92rem;
+  color: var(--charcoal);
+  margin-bottom: 0;
+}
+
+/* ----- Audit / Accountability Banner ----------------------- */
+.accountability-banner {
+  background: var(--navy);
+  color: var(--white);
+  padding: 2.5rem 2rem;
+  text-align: center;
+}
+
+.accountability-banner h3 {
+  color: var(--white);
+  font-size: 1.3rem;
+  margin-bottom: 0.75rem;
+}
+
+.accountability-banner p {
+  color: rgba(255,255,255,0.8);
+  font-size: 0.95rem;
+  margin: 0 auto;
+}
+
+/* ----- Responsive ------------------------------------------ */
+@media (max-width: 820px) {
+  html { font-size: 16px; }
+
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.65rem; }
+
+  .col-2,
+  .col-3,
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    padding-bottom: 0.75rem;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-links a {
+    padding: 0.65rem 0;
+    border-bottom: none;
+  }
+
+  .nav-hamburger {
+    display: block;
+  }
+
+  #home {
+    padding: 4rem 1.5rem 3.5rem;
+  }
+
+  .content-section {
+    padding: 3.5rem 1.5rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .col-3 {
+    grid-template-columns: 1fr;
+  }
+
+  .board-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .reports-table {
+    font-size: 0.85rem;
+  }
+
+  .reports-table th,
+  .reports-table td {
+    padding: 0.65rem 0.75rem;
+  }
+}
